@@ -1,0 +1,19 @@
+extends ../templates/common
+block content
+    h2.text-center.m-5 Add a book
+    .row
+        .col-md-3
+        .col-md-6
+            form(action="/books/create", method="post", enctype="multipart/form-data")
+                .form-group
+                    label(for="file") Cover :
+                    input.form-control-file(id="file" type="file", name="cover")
+                    br
+                    label(for="title") Title :
+                    input.form-control(type="text" name="title" placeholder="Please enter title here!" id="title")
+                    br
+                    label(for="description") Description :
+                    input.form-control(type="text" name="description" placeholder="Please enter description here!" id="description")
+                    br
+                    button.btn.btn-primary(type="submit") Add
+        .col-md-3

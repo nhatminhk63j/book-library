@@ -1,0 +1,18 @@
+html
+    head
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+
+    body
+        .container
+            nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+                a.navbar-brand(href='/books', style="font-weight: 900") BOOK LIBRARY
+                button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarNav.collapse.navbar-collapse
+                    ul.navbar-nav
+                        li.nav-item.active
+                            a.nav-link(href='/books') Books
+                            span.sr-only (current)
+                        li.nav-item
+                            a.nav-link(href='#') My bag
+            block content
