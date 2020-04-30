@@ -1,0 +1,23 @@
+extends ../templates/common
+block content
+    h2.text-center.m-5 My transactions
+    if transactions
+        table.table.table-bordered.text-center
+            tr
+                th  No
+                th  Cover
+                th  Title
+                th  Amount
+                th  User name
+                th  Status
+            each transaction, index in transactions
+                tr
+                    td=index+1
+                    td
+                        img(src=transaction.book.cover, alt="", height="100px")
+                    td=transaction.book.title
+                    td=transaction.book.number
+                    td=transaction.user.name
+                    td Not done
+    else
+        h4.text-center.alert There is no exchange here!

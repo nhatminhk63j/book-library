@@ -16,15 +16,16 @@ module.exports.login = (req, res, next) => {
 
 module.exports.register = (req, res, next) => {
     var errors = [];
-    const {email, password, name} = req.body;
+    const {name, email, password} = req.body;
     if(email && password && name) {
         next();
+        return;
     } else {
+        if(!name) errors.push("Name is required!");
         if(!email) errors.push("Email is required!");
         else if(!email.includes('@')) errors.push("Please enter email!")
         if(!password) errors.push("Password is required");
-        if(!name) errors.push("Name is required!");
-        res.render('users/login', {
+        res.render('users/register', {
             email: email,
             password: password,
             errors: errors

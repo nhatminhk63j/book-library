@@ -1,3 +1,19 @@
 extends ../templates/common
 block content
     h2.text-center.m-5 Books
+    if books
+        .row.text-center
+            each book in books
+                .col-lg-4.col-md-6.bg-light
+                    .card.m-3.p-3.d-flex.flex-column.align-items-center(style="height: 450px")
+                        img.card-image(src=book.cover || "", width="250px")
+                        .card-body
+                        h4=book.title
+                        p=book.description
+                        a(href="bag/add/" + book._id)
+                            button.btn.btn-primary 
+                                i.fa.fa-shopping-bag.mr-1 
+                                span Add to bag
+                                
+    else
+        p.alert.alert-danger  No book in here!

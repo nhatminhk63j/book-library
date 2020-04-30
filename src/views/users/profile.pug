@@ -1,0 +1,16 @@
+extends ../templates/common
+block content
+    h2.text-center.m-5 Profile
+    .row
+        .col-md-3
+        .col-md-6
+            .row
+                .col-md-4
+                    img(src=user.avatar, alt="" height="200px")
+                .col-md-8.pl-5
+                    b Name : #{user.name}
+                    p Email: #{user.email}
+                    a.mt-5(href="/profile/change")        
+                        button.btn.btn-primary Change info
+            
+        .col-md-3

@@ -1,0 +1,29 @@
+extends ../templates/common
+block content
+    h2.text-center.m-5 My bag
+    if books
+        table.table.table-bordered.text-center
+            tr
+                th  No
+                th  Cover
+                th  Title
+                th  Description
+                th  Amount
+                th  Action
+            each book, index in books
+                tr
+                    td=index+1
+                    td
+                        img(src=book.cover, alt="")
+                    td=book.title
+                    td=book.description
+                    td=book.number
+                    td
+                        a(href="/transactions/add/" + book._id)
+                            button.btn.btn-primary  Borrow
+                        br
+                        br
+                        a.mt-5(href="/bag/delete/" + book._id)
+                            button.btn.btn-danger   Delete 
+    else
+        p Nothing oops!

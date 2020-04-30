@@ -1,19 +1,37 @@
 html
     head
         link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
         link(rel="stylesheet", href="/style.css")
 
     body
         .container
             nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.p-3
                 a.navbar-brand(href='/books', style="font-weight: 700, font-size: 3rem") BOOK LIBRARY
+                    
                 button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
                     span.navbar-toggler-icon
                 #navbarNav.collapse.navbar-collapse
                     ul.navbar-nav
                         li.nav-item.active
                             a.nav-link(href='/books') Books
+                                i.fa.fa-book
                             span.sr-only (current)
                         li.nav-item
-                            a.nav-link(href='#') My bag
+                            a.nav-link.bag(href='/bag')
+                                span.number.ml-2 #{numberBook}
+                                i.fa.fa-shopping-bag
+                    ul.navbar-nav.ml-auto
+                        if hasUser
+                            li.nav-item
+                                a.nav-link(href='/transactions') My transactions
+                            li.nav-item
+                                a.nav-link(href='/users/profile') Profile
+                            li.nav-item
+                                a.nav-link(href='/users/logout') Logout
+                        else
+                            li.nav-item
+                                    a.nav-link(href='/users/login') Login
+                            li.nav-item
+                                    a.nav-link(href='/users/register') Register
             block content
