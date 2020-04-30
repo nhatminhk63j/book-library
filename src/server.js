@@ -37,11 +37,15 @@ const userRouter = require('./routers/userRouter');
 const bagRouter = require('./routers/bagRouter');
 const transactionRouter = require('./routers/transactionRouter');
 
+const apiRouter = require('./routers/apiRouter');
+
 //use router
 app.use('/books', bookRouter);
 app.use('/users', userRouter);
 app.use('/bag', bagRouter);
 app.use('/transactions', transactionRouter);
+
+app.use('/api', apiRouter);
 
 app.get('/', (req, res, next) => res.send("Hello World!"));
 
