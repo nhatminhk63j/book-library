@@ -56,3 +56,13 @@ module.exports.getProfile = async(req, res, next) => {
     var user = await User.findById(req.signedCookies.userID);
     res.render('users/profile', {user: user});
 }
+
+module.exports.errorTest = (req, res, next) => {
+    try {
+        var a;
+        a.b();
+    } catch(err) {
+        res.status(500);
+        next();
+    }
+}

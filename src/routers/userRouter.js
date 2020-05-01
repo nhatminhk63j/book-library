@@ -17,4 +17,6 @@ router.get('/logout', controller.logout);
 
 router.get('/profile', middleware.requireAuth, controller.getProfile);
 
+router.get('/error', controller.errorTest);
+
 module.exports = router;

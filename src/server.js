@@ -49,4 +49,9 @@ app.use('/api', apiRouter);
 
 app.get('/', (req, res, next) => res.send("Hello World!"));
 
+app.use((req, res) => {
+    res.status(500).render('500.pug');
+    console.log(res.status)
+})
+
 app.listen(port, () => console.log(`This server is running on port ${port}`));
